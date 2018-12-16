@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>JavaScript Data Types</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+				<h1>Js Data Types</h1>
+				<p>
+					<small>Created by <a href="https://github.com/TEBESKASHI">TEBESKASHI</a></small>
+				</p>
+			</section>
+
+				<section>
+					<section>
+					<h3>There are 7 basic types in JavaScript</h3>
+					<p>Number</p>
+					<p class="fragment">String</p>
+					<p class="fragment">Boolean</p>
+					<p class="fragment">Null</p>
+					<p class="fragment">Undefined</p>
+					<p class="fragment">Object</p>
+					<p class="fragment">Symbol</p>
+				</section>
+				<section>
+					<h2>Examples</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+								typeof undefined // "undefined"
+	
+								typeof 0 // "number"
+								
+								typeof true // "boolean"
+								
+								typeof "foo" // "string"
+								
+								typeof Symbol("id") // "symbol"
+								
+								typeof Math // "object"  (1)
+								
+								typeof null // "object"  (2)
+						</code></pre>
+				</section>
+				</section>
+				<section>
+					<section>
+					<h2>
+						Variable declaration
+					</h2>
+					<p style="color:chartreuse">keyword var (const, let)</p>
+					<p class="fragment" style="color:chartreuse">variable name</p>
+					<p class="fragment" style="color:red;">value (if no value assigned, value is undefined)</p>
+					</section>
+					<section>
+						<h3>JavaScript Types are Dynamic</h3>
+						<pre><code class="hljs" data-trim contenteditable>
+						var str; // "undefined"
+						str = "Hello Word" // "string"
+						str = 5 // "number"
+						str += "Hello" (5Hello) // "string" 
+					</code></pre>
+					</section>
+				</section>
+				<section>
+				<section style="text-align:left">
+					<h2>Numbers</h2>
+					<p>64-bit floating pointer</p>
+					<p>precision problem</p>
+					<p style="color:rebeccapurple"> 0.1 + 0.2</p>
+					<p style="color:chartreuse">Expected value: 0.3</p>
+					<p style="color:red">Returned value: 0.30000000000000004</p>
+				</section>
+				<section>
+						<h2>Methods</h2>
+						<p>toExponential</p>
+	<p class="fragment">toString</p>
+	<p class="fragment">toPrecision</p>
+	<p class="fragment">toFixed</p>
+				</section>
+				<section>
+					<h2>Special Numberic Values</h2>
+					<p>Infinity</p>
+					<p>NaN (Not a number)</p>
+					<p>Any arithmetic operation with NaN <br>results to NaN</p>
+				</section>
+				</section>
+				<section>
+					<section>
+						<h2>String</h2>
+						<h4>A string in JavaScript must be quoted</h4>
+						<pre><code class="hljs" data-trim contenteditable>
+let str = "Hello";
+let str2 = 'Single quotes are ok too';
+let phrase = `can embed ${str}`;
+</code></pre>
+</section>
+<section>
+<h2>In JavaScript, there are 3 types of quotes</h2>
+<p>Double quotes: "Hello".</p>
+<p>Single quotes: 'Hello'.</p>
+<p>Backticks: `Hello`.</p>
+</section>
+<section>
+	<p>Double and single quotes are “simple” quotes. There’s no difference between them in JavaScript.</p>
+	<p>Backticks are “extended functionality” quotes. They allow us to embed variables and expressions into a string by wrapping them in ${…}, for example</p>
+	<pre><code class="hljs" data-trim contenteditable>
+			let name = "John";
+
+			// embed a variable
+			alert( `Hello, ${name}!` ); // Hello, John!
+			
+			// embed an expression
+			alert( `the result is ${1 + 2}` ); // the result is 3
+			</code></pre>
+</section>
+					</section>
+					<section>
+						<section>
+							<h2>Boolean</h2>
+							The boolean type has only two values: true and false.
+							This type is commonly used to store yes/no values: true means “yes, correct”, and false means “no, incorrect”.
+							<pre><code class="hljs" data-trim contenteditable>
+									let nameFieldChecked = true; // yes, name field is checked
+									let ageFieldChecked = false; // no, age field is not checked
+							</code></pre>
+							Boolean values also come as a result of comparisons:
+							<pre><code class="hljs" data-trim contenteditable>
+									let isGreater = 4 > 1;
+									alert( isGreater ); // true (the comparison result is "yes")
+							</code></pre>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h2>Null</h2>
+							<p>Null in number</p>
+							<pre><code class="hljs" data-trim contenteditable>
+								1 + null = 1
+							</code></pre>
+						</section>
+						<section>
+							<h4>Null is object</h4>
+							<pre><code class="hljs" data-trim contenteditable>
+								typeof null == 'object' // "true"
+							</code></pre>
+						</section>
+						<section>
+							<h4>WAT</h4>
+							<pre><code class="hljs" data-trim contenteditable>
+								null == 0; // false (bug in js specification)
+								null > 0; // false 
+								null >= 0; // true
+							</code></pre>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h2>Undefined</h2>
+							If a variable is declared, but not assigned, then its value is exactly undefined
+							<pre><code class="hljs" data-trim contenteditable>
+									let x;
+
+									alert(x); // shows "undefined"
+							</code></pre>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h2>Objects and Symbols</h2>
+							<p style="color:red">Key - value unordered dynamic collections</p>
+							<p>Everything in JavaScript is an object</p>
+							<p>Properties and method could be added/deleted in runtime</p>
+						</section>
+						<section>
+							<h3>Symbols</h3>
+							The symbol type is used to create unique identifiers for objects.
+							<pre><code class="hljs" data-trim contenteditable>
+									'use strict';
+
+									let sym = Symbol();
+									alert( typeof sym ); // symbol
+							</code></pre>
+							Each character is unique. The Symbol function has an optional argument “symbol name”. It can be used to describe a symbol for debugging purposes:
+							<pre><code class="hljs" data-trim contenteditable>
+							'use strict';
+
+							let sym = Symbol("name");
+							alert( sym.toString() ); // Symbol(name)
+						</code></pre>
+						</section>
+						<section>
+							<h2>Dynamic Nature</h2>
+							<pre><code class="hljs" data-trim contenteditable>
+								var a = {};
+								var b = {};
+								a == b // false
+								a.x = 1;
+								b.y = "foo";
+								delete a.x;
+								typeof (a.x) // "undefined"
+							</code></pre>
+						</section>
+						<section>
+							<h2>Objects like a map</h2>
+							<pre><code class="hljs" data-trim contenteditable>
+								var names = {};
+								names['first'] = "Maks";
+								names['second'] = "Ivan";
+								console.log(names['first']); // "Maks"
+							</code></pre>
+							<h3>Dot/Array notation</h3>
+							<pre><code class="hljs" data-trim contenteditable>
+								var point = {
+									x:1,
+									y:2
+								};
+								point.x == point['x']; // true
+							</code></pre>
+							<h3 class="fragment" style="color:red">BUT</h3>
+							<pre class="fragment"><code class="hljs" data-trim contenteditable>
+								point.1 = "one"; // syntax error
+								point['1'] = "one"
+							</code></pre>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h2>Arrays</h2>
+							<p>Inherits from object</p>
+							<p>Indices converted to strings and used as names for retrieving values</p>
+							<p>Have special <span style="color:red">length</span> property</p>
+						</section>
+						<section>
+							<h2>Arrays</h2>
+							<pre><code class="hljs" data-trim contenteditable>
+								var array = [];
+								console.log(array) // "[]"
+								array = [1];
+								console.log(array); // "[1]"
+								array.length == 1 // "true"
+							</code></pre>
+						</section>
+					</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
